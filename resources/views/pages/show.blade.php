@@ -19,6 +19,7 @@
         .code-editor-wrapper {
             position: relative;
             width: 32%;
+            margin-right: 25px;
         }
 
         .code-editor {
