@@ -53,33 +53,33 @@
         <form action="{{ route('pages.store') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="title">サイトのタイトル</label>
-                <input type="text" id="title" name="title">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" value="MyWebsite">
             </div>
             <div class="form-group">
-                <label for="site-type">サイトの種類</label>
-                <select id="site-type">
-                    <option value="homepage">ホームページ</option>
-                    <option value="Web Application">Webアプリ</option>
-                    <option value="game">ゲーム</option>
+                <label for="site-type">Site type</label>
+                <select id="site-type" name="site-type">
+                    <option value="Web Application">Web Application</option>
+                    <option value="business">Business</option>
+                    <option value="blog">Blog</option>
+                    <option value="portfolio">Portfolio</option>
+                    <option value="e-commerce">E-commerce</option>
+                    <option value="homepage">Homepage</option>
+                    <option value="game">Game</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="color">カラーテーマ</label>
-                <select id="color">
-                    <option value="light">ライト</option>
-                    <option value="dark">ダーク</option>
-                    <option value="colorful">カラフル</option>
-                    <option value="blue">青</option>
-                </select>
+                <label for="color">Color</label>
+                <input type="text" id="color" name="color" value="blue">
             </div>
             <div class="form-group">
-                <label for="design-details">デザイン詳細</label>
-                <textarea id="design-details" rows="5" placeholder="作成したいサイトのデザインの詳細を入力してください。"></textarea>
+                <label for="design-details">Design details</label>
+                <textarea id="design-details" name="design-details" rows="5"
+                    placeholder="Enter any specific design requirements here..."></textarea>
             </div>
-            <button type="submit">Webデザインを生成する</button>
+            <button type="submit">Generate Design</button>
+        </form>
     </div>
-    </form>
 </body>
 
 </html>
