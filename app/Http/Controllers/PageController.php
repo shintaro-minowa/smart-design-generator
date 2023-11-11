@@ -37,9 +37,10 @@ class PageController extends Controller
 
         $page = Page::create(['title' => $idea, 'user_id' => $userId]);
         $content = new Content([
-            'html_content' => $generatedContent['html'],
-            'css_content' => $generatedContent['css'],
-            'js_content' => $generatedContent['js'],
+            'full_html' => $generatedContent['full_html'],
+            'body_html' => $generatedContent['body_html'],
+            'style_css' => $generatedContent['style_css'],
+            'script_js' => $generatedContent['script_js'],
         ]);
         $page->content()->save($content);
 
@@ -61,14 +62,14 @@ class PageController extends Controller
         // ];
 
         $content = 'HTMLドキュメントを作成してください。' . "\n" .
-                   '### 条件 ###' . "\n" .
-                   'ドキュメントには、スタイリングのための<style>タグ内のCSSコードと、動作のための<script>タグ内のJavaScriptコードを含めてください。' . "\n" .
-                   '### 種類 ###' . "\n" .
-                   'ホームページ' . "\n" .
-                   '### デザインの案 ###' . "\n" .
-                   '青をベースに' . "\n" .
-                   '詳細' . "\n" .
-                   '株式会社テストのホームページを作成したいです。';
+            '### 条件 ###' . "\n" .
+            'ドキュメントには、スタイリングのための<style>タグ内のCSSコードと、動作のための<script>タグ内のJavaScriptコードを含めてください。' . "\n" .
+            '### 種類 ###' . "\n" .
+            'Webサイト' . "\n" .
+            '### デザインの案 ###' . "\n" .
+            '水色をベースに' . "\n" .
+            '詳細' . "\n" .
+            'ユーザーが作成したいサイトの種類、色、を選択できるようにする。デザインアイディアの詳細をテキストで入力できるようにする。「デザイン生成」ボタン表示する';
 
         $messages = [
             ['role' => 'user', 'content' => $content]
@@ -84,44 +85,52 @@ class PageController extends Controller
         \Log::info('extractedContent', $extractedContent);
 
         return [
-            'html' => $extractedContent['html'],
-            'css' => $extractedContent['css'],
-            'js' => $extractedContent['js']
+            'full_html' => $extractedContent['full_html'],
+            'body_html' => $extractedContent['body_html'],
+            'style_css' => $extractedContent['style_css'],
+            'script_js' => $extractedContent['script_js']
         ];
     }
 
     private function extractCodeFromResponse($response)
     {
-        $html = $this->extractHtml($response);
-        $css = $this->extractCss($response);
-        $js = $this->extractJs($response);
+        $full_html = $this->extractFullHtml($response);
+        $body_html = $this->extractBodyHtml($response);
+        $style_css = $this->extractStyleCss($response);
+        $script_js = $this->extractScriptJs($response);
 
         return [
-            'html' => $html,
-            'css' => $css,
-            'js' => $js
+            'full_html' => $full_html,
+            'body_html' => $body_html,
+            'style_css' => $style_css,
+            'script_js' => $script_js,
         ];
     }
 
-    function extractHtml($content)
+    function extractFullHtml($content)
     {
-        // CSSとJavaScriptのセクションを除去
-        $content = preg_replace('/<style>.*?<\/style>/s', '', $content);
-        $content = preg_replace('/<script>.*?<\/script>/s', '', $content);
-
         // HTMLセクションを抽出
-        preg_match('/<!DOCTYPE html>(.*?)<\/html>/s', $content, $matches);
+        preg_match('/(<!DOCTYPE html>.*?<\/html>)/s', $content, $matches);
         return $matches[1];
     }
 
-    function extractCss($content)
+    function extractBodyHtml($content)
+    {
+        // JavaScriptのセクションを除去
+        $content = preg_replace('/<script>.*?<\/script>/s', '', $content);
+
+        // CSSセクションを抽出
+        preg_match('/<body>(.*?)<\/body>/s', $content, $matches);
+        return $matches[1];
+    }
+    function extractStyleCss($content)
     {
         // CSSセクションを抽出
         preg_match('/<style>(.*?)<\/style>/s', $content, $matches);
         return $matches[1];
     }
 
-    function extractJs($content)
+    function extractScriptJs($content)
     {
         // JavaScriptセクションを抽出
         preg_match('/<script>(.*?)<\/script>/s', $content, $matches);

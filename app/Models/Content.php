@@ -12,9 +12,10 @@ class Content extends Model
     protected $table = 'contents';
 
     protected $fillable = [
-        'html_content',
-        'css_content',
-        'js_content',
+        'full_html',
+        'body_html',
+        'style_css',
+        'script_js',
         'page_id',
         // 他のカラムを追加
     ];

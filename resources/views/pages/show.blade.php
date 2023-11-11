@@ -3,13 +3,13 @@
 <head>
     <title>{{ $page->title }}</title>
     <style>
-        {!! $page->content->css_content !!}
+        {!! $page->content->style_css !!}
     </style>
 </head>
 <body>
-    {!! $page->content->html_content !!}
+    {!! $page->content->body_html !!}
     <script>
-        {!! $page->content->js_content !!}
+        {!! $page->content->script_js !!}
     </script>
 </body>
 </html>
