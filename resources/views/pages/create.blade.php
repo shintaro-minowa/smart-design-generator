@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="スマートデザインジェネレーター">
+    <meta property="og:description" content="Webデザインを一瞬で生成">
+    <meta property="og:url" content="https://smart-design-generator-cfa7c4008e3e.herokuapp.com/">
+    <meta property="og:image" content="https://imgur.com/PGgm9Pa" />
     <title>スマートデザインジェネレーター</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>

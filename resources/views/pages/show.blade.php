@@ -2,6 +2,10 @@
 <html>
 
 <head>
+    <meta property="og:title" content="スマートデザインジェネレーター">
+    <meta property="og:description" content="Webデザインを一瞬で生成">
+    <meta property="og:url" content="https://smart-design-generator-cfa7c4008e3e.herokuapp.com/">
+    <meta property="og:image" content="https://imgur.com/PGgm9Pa" />
     <title>{{ $page->title }}</title>
     <style>
         {!! $page->content->style_css !!}
