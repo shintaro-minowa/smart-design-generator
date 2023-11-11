@@ -67,7 +67,7 @@
             </textarea>
         </div>
         <div class="code-editor-wrapper">
-            <span class="code-editor-label">JavaScript</span>
+            <span class="code-editor-label">JS</span>
             <textarea id="code-editor">
                 {!! htmlspecialchars($page->content->script_js) !!}
             </textarea>
