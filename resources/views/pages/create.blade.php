@@ -109,20 +109,22 @@
     </div>
 
     <script>
-        // ページのDOMが完全に読み込まれた後に実行される関数を設定
         document.addEventListener('DOMContentLoaded', function() {
             var overlay = document.getElementById('overlay');
-
-            // オーバーレイを非表示に設定
-            if (overlay) {
-                overlay.style.display = 'none';
-            }
-
-            // フォームの送信イベントリスナーを設定
             var form = document.getElementById('designForm');
+
+            // ページがキャッシュから読み込まれた場合、オーバーレイを非表示にする
+            window.onpageshow = function(event) {
+                if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+                    if (overlay) {
+                        overlay.style.display = 'none';
+                    }
+                }
+            };
+
+            // フォーム送信イベント
             if (form) {
                 form.addEventListener('submit', function(e) {
-                    // オーバーレイを表示する
                     if (overlay) {
                         overlay.style.display = 'flex';
                     }
