@@ -24,6 +24,18 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
+        $userIp = $request->ip();
+
+        // 過去24時間内に同じIPアドレスから作成されたページの数を取得
+        $pagesCount = Page::where('user_ip', $userIp)
+            ->where('created_at', '>=', now()->subDay())
+            ->count();
+
+        // 制限を超えている場合はエラーメッセージを表示
+        if ($pagesCount >= 10) {
+            return back()->withErrors(['limit' => '利用回数制限に到達しました。']);
+        }
+
         $title = $request->input('title', '');
         $siteType = $request->input('site-type', '');
         $color = $request->input('color', '');
