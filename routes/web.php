@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [PageController::class, 'create'])->name('pages.create');
+Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
+Route::get('/pages/{page}', [PageController::class, 'show'])->name('pages.show');
