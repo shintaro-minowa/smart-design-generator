@@ -10,7 +10,7 @@ class Page extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'user_id', 'code'];
+    protected $fillable = ['title', 'user_id', 'code', 'user_ip'];
 
     protected static function boot()
     {

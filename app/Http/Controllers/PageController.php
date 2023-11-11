@@ -45,7 +45,14 @@ class PageController extends Controller
         // ユーザーがログインしていればそのIDを、していなければnullを設定
         $userId = auth()->check() ? auth()->id() : null;
 
-        $page = Page::create(['title' => $title, 'user_id' => $userId]);
+        $userIp = $request->ip();
+
+        $page = Page::create([
+            'title' => $title,
+            'user_id' => $userId,
+            'user_ip' => $userIp
+        ]);
+
         $content = new Content([
             'full_html' => $generatedContent['full_html'],
             'body_html' => $generatedContent['body_html'],
