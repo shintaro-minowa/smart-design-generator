@@ -35,22 +35,10 @@
     <textarea id="code-editor">
         {!! htmlspecialchars($page->content->body_html) !!}
     </textarea>
-    <!-- コピー用ボタン -->
-    <button class="copy-button" onclick="copyCode()">コピー</button>
 
     {!! $page->content->body_html !!}
     <script>
         {!! $page->content->script_js !!}
-
-        // 追加されたJavaScript
-        function copyCode() {
-            var code = document.getElementById('code-editor').value;
-            navigator.clipboard.writeText(code).then(function() {
-                alert('コードをコピーしました！');
-            }, function(err) {
-                alert('コピーに失敗しました: ', err);
-            });
-        }
     </script>
 </body>
 </html>
