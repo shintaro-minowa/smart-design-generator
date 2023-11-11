@@ -54,11 +54,12 @@ class PageController extends Controller
         ]);
         $page->content()->save($content);
 
-        return redirect()->route('pages.show', $page);
+        return redirect()->route('pages.show', ['code' => $page->code]);
     }
 
-    public function show(Page $page)
+    public function show($code)
     {
+        $page = Page::where('code', $code)->firstOrFail();
         return view('pages.show', ['page' => $page]);
     }
 

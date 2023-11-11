@@ -22,6 +22,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [PageController::class, 'create'])->name('pages.create');
 Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
-Route::get('/pages/{page}', [PageController::class, 'show'])->name('pages.show');
+Route::get('/pages/{code}', [PageController::class, 'show'])->name('pages.show');
 
 Route::get('/test', [TestController::class, 'index']);

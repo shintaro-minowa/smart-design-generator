@@ -4,24 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Page extends Model
 {
     use HasFactory;
 
-    // テーブル名の指定（オプション）
-    protected $table = 'pages';
+    protected $fillable = ['title', 'user_id', 'code'];
 
-    // 代入可能な属性の指定
-    protected $fillable = [
-        'title',
-        // ページのタイトル
-        'user_id',
-        // ユーザーID
-        // 必要に応じて他のカラムを追加
-    ];
+    protected static function boot()
+    {
+        parent::boot();
 
-    // Contentモデルとの1対1の関係を定義
+        static::creating(function ($page) {
+            $page->code = Str::random(16);
+        });
+    }
+
     public function content()
     {
         return $this->hasOne(Content::class);
