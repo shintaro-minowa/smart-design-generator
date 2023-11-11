@@ -38,15 +38,6 @@
             border-radius: 4px;
             font-size: 0.8em;
         }
-
-        .copy-button {
-            background-color: #007acc;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
     </style>
 </head>
 
