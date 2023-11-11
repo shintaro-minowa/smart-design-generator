@@ -24,10 +24,10 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        $title = $request->input('title');
-        $siteType = $request->input('site-type');
-        $color = $request->input('color');
-        $designDetails = $request->input('design-details');
+        $title = $request->input('title', '');
+        $siteType = $request->input('site-type', '');
+        $color = $request->input('color', '');
+        $designDetails = $request->input('design-details', '');
 
         $idea = [
             'title' => $title,
