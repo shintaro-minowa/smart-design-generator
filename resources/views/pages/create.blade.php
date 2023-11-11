@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマートデザインジェネレーター</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,13 +45,27 @@
         button:hover {
             background-color: #00bfff;
         }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>スマートデザインジェネレーター</h1>
-        <form action="{{ route('pages.store') }}" method="POST">
+        <form id="designForm" action="{{ route('pages.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="title">タイトル</label>
@@ -79,6 +94,19 @@
             <button type="submit">デザイン生成</button>
         </form>
     </div>
+
+    <div class="overlay" id="overlay">
+        <div>
+            <i class="fas fa-spinner fa-spin" style="font-size:48px;color:white;"></i>
+            <h2 style="color: white;">デザイン生成中</h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('designForm').addEventListener('submit', function(e) {
+            document.getElementById('overlay').style.display = 'flex';
+        });
+    </script>
 </body>
 
 </html>
