@@ -77,18 +77,17 @@ class PageController extends Controller
         $color = htmlspecialchars($idea['color']);
         $designDetails = htmlspecialchars($idea['designDetails']);
 
-        $content = 'HTMLドキュメントを作成してください。' . "\n" .
-            '### 条件 ###' . "\n" .
-            'ドキュメントには、スタイリングのための<style>タグ内のCSSコードと、動作のための<script>タグ内のJavaScriptコードを含めてください。' . "\n" .
-            '### サイトのタイトル ###' . "\n" .
+        $content = 'Please create an HTML document.' . "\n" .
+            '### Requirements ###' . "\n" .
+            'Include CSS code within the <style> tag for styling, and JavaScript code within the <script> tag for functionality.' . "\n" .
+            '### Site Title ###' . "\n" .
             $title . "\n" .
-            '### サイトのタイプ ###' . "\n" .
+            '### Type of Site ###' . "\n" .
             $siteType . "\n" .
-            '### カラーテーマ ###' . "\n" .
+            '### Color Theme ###' . "\n" .
             $color . "\n" .
-            '### 詳細 ###' . "\n" .
+            '### Details ###' . "\n" .
             $designDetails;
-            // 'ユーザーが作成したいサイトの種類、色、を選択できるようにする。デザインアイディアの詳細をテキストで入力できるようにする。「デザイン生成」ボタン表示する';
 
         $messages = [
             ['role' => 'user', 'content' => $content]
