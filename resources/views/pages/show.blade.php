@@ -36,7 +36,7 @@
 
         .code-editor-label {
             position: absolute;
-            top: 0;
+            top: -20px;
             left: 0;
             background-color: grey;
             color: white;
