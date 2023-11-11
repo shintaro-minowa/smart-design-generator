@@ -32,7 +32,7 @@
             top: -20px;
             top: 0px;
             left: 0px;
-            background-color: #007acc;
+            background-color: grey;
             color: white;
             padding: 3px 5px;
             border-radius: 4px;
