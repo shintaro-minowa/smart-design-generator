@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Webデザインジェネレーター</title>
+    <title>Smart Design Generator</title>
     <style>
         body {
             background-color: #add8e6;
@@ -55,7 +55,7 @@
 
 <body>
     <div class="container">
-        <h1>Webデザインジェネレーター</h1>
+        <h1>Smart Design Generator</h1>
         <form action="{{ route('pages.store') }}" method="POST">
             @csrf
             <div class="form-group">
