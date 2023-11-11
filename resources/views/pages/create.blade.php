@@ -109,8 +109,25 @@
     </div>
 
     <script>
-        document.getElementById('designForm').addEventListener('submit', function(e) {
-            document.getElementById('overlay').style.display = 'flex';
+        // ページのDOMが完全に読み込まれた後に実行される関数を設定
+        document.addEventListener('DOMContentLoaded', function() {
+            var overlay = document.getElementById('overlay');
+
+            // オーバーレイを非表示に設定
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+
+            // フォームの送信イベントリスナーを設定
+            var form = document.getElementById('designForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // オーバーレイを表示する
+                    if (overlay) {
+                        overlay.style.display = 'flex';
+                    }
+                });
+            }
         });
     </script>
 </body>
