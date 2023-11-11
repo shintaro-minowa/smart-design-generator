@@ -4,15 +4,13 @@
 <head>
     <title>{{ $page->title }}</title>
     <style>
-        /* 既存のスタイル */
         {!! $page->content->style_css !!}
 
-        /* code-containerに適用されるスタイル */
         #code-editor-container {
             position: relative;
             width: 100%;
             margin: 10px auto;
-            padding-top: 20px;
+            padding-top: 10px;
             display: flex;
             justify-content: space-between;
         }
@@ -28,22 +26,20 @@
             color: white;
             font-family: Consolas, 'Courier New', monospace;
             padding: 10px;
-            border-radius: 4px;
             overflow: auto;
             width: 100%;
-            height: 100px;
+            height: 200px;
             border: none;
             resize: none;
         }
 
         .code-editor-label {
             position: absolute;
-            top: -20px;
+            top: -5px;
             left: 0;
-            background-color: grey;
+            background-color: #1e1e1e;
             color: white;
             padding: 3px 5px;
-            border-radius: 4px;
             font-size: 0.8em;
         }
 
@@ -60,14 +56,14 @@
         }
     </style>
 
-    <!-- highlight.jsのコアライブラリと必要な言語、テーマ -->
+    <!-- highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
 
-    <!-- Prettierのライブラリとパーサー -->
+    <!-- Prettier -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/standalone.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/parser-html.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/parser-postcss.min.js"></script>
