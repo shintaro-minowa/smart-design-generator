@@ -63,13 +63,13 @@
         <div class="code-editor-wrapper">
             <span class="code-editor-label">CSS</span>
             <textarea id="code-editor">
-                /* CSSコード */
+                {!! htmlspecialchars($page->content->style_css) !!}
             </textarea>
         </div>
         <div class="code-editor-wrapper">
             <span class="code-editor-label">JavaScript</span>
             <textarea id="code-editor">
-                /* JavaScriptコード */
+                {!! htmlspecialchars($page->content->script_js) !!}
             </textarea>
         </div>
     </div>
