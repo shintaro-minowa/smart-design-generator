@@ -9,9 +9,9 @@
         /* code-containerに適用されるスタイル */
         #code-editor-container {
             position: relative;
-            /* 追加：ラベルを正確に配置するための相対位置 */
             width: 90%;
             margin: 10px 0;
+            padding-top: 20px;
         }
 
         #code-editor {
@@ -29,14 +29,12 @@
 
         .code-editor-label {
             position: absolute;
-            /* 追加：絶対位置でラベルを配置 */
+            top: -20px;
             top: 0px;
-            /* 追加：ラベルの位置調整 */
             left: 0px;
-            /* 追加：ラベルの位置調整 */
             background-color: #007acc;
             color: white;
-            padding: 2px 5px;
+            padding: 3px 5px;
             border-radius: 4px;
             font-size: 0.8em;
         }
