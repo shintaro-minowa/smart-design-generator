@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Content;
 use App\Services\ChatGPTService;
-use DOMDocument;
+use Illuminate\Support\Facades\App;
 
 class PageController extends Controller
 {
@@ -64,14 +64,6 @@ class PageController extends Controller
 
     private function generateContentFromIdea($idea)
     {
-        // モック
-        // return [
-        //     'html' => '<p>Generated HTML for: ' . htmlspecialchars($idea) . '</p>',
-        //     'css' => 'p { color: blue; }',
-        //     'js' => 'console.log("Generated JS for: ' . htmlspecialchars($idea) . '");'
-        // ];
-
-        // $idea 配列から値を取得
         $title = htmlspecialchars($idea['title']);
         $siteType = htmlspecialchars($idea['siteType']);
         $color = htmlspecialchars($idea['color']);
@@ -95,7 +87,11 @@ class PageController extends Controller
 
         \Log::info('GPT API request', $messages);
 
-        $response = $this->chatGPTService->getGptResponse($messages);
+        if (App::environment('local') && env('USE_MOCK') === true) {
+            $response = $this->chatGPTService->getMockGptResponse($messages);
+        } else {
+            $response = $this->chatGPTService->getGptResponse($messages);
+        }
 
         \Log::info('GPT API response', $response);
 
