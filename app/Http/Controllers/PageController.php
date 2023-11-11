@@ -24,9 +24,19 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        $idea = $request->input('idea');
+        $title = $request->input('title');
+        $siteType = $request->input('site-type');
+        $color = $request->input('color');
+        $designDetails = $request->input('design-details');
 
-        // 外部APIを呼び出し、HTML/CSS/JSを生成（モック）
+        $idea = [
+            'title' => $title,
+            'siteType' => $siteType,
+            'color' => $color,
+            'designDetails' => $designDetails
+        ];
+
+        // GPTのAPIを呼び出し、HTML/CSS/JSを生成
         $generatedContent = $this->generateContentFromIdea($idea);
 
         // ログに内容を記録
@@ -35,7 +45,7 @@ class PageController extends Controller
         // ユーザーがログインしていればそのIDを、していなければnullを設定
         $userId = auth()->check() ? auth()->id() : null;
 
-        $page = Page::create(['title' => $idea, 'user_id' => $userId]);
+        $page = Page::create(['title' => $title, 'user_id' => $userId]);
         $content = new Content([
             'full_html' => $generatedContent['full_html'],
             'body_html' => $generatedContent['body_html'],
@@ -61,15 +71,24 @@ class PageController extends Controller
         //     'js' => 'console.log("Generated JS for: ' . htmlspecialchars($idea) . '");'
         // ];
 
+        // $idea 配列から値を取得
+        $title = htmlspecialchars($idea['title']);
+        $siteType = htmlspecialchars($idea['siteType']);
+        $color = htmlspecialchars($idea['color']);
+        $designDetails = htmlspecialchars($idea['designDetails']);
+
         $content = 'HTMLドキュメントを作成してください。' . "\n" .
             '### 条件 ###' . "\n" .
             'ドキュメントには、スタイリングのための<style>タグ内のCSSコードと、動作のための<script>タグ内のJavaScriptコードを含めてください。' . "\n" .
-            '### 種類 ###' . "\n" .
-            'Webサイト' . "\n" .
-            '### デザインの案 ###' . "\n" .
-            '水色をベースに' . "\n" .
-            '詳細' . "\n" .
-            'ユーザーが作成したいサイトの種類、色、を選択できるようにする。デザインアイディアの詳細をテキストで入力できるようにする。「デザイン生成」ボタン表示する';
+            '### サイトのタイトル ###' . "\n" .
+            $title . "\n" .
+            '### サイトのタイプ ###' . "\n" .
+            $siteType . "\n" .
+            '### カラーテーマ ###' . "\n" .
+            $color . "\n" .
+            '### 詳細 ###' . "\n" .
+            $designDetails;
+            // 'ユーザーが作成したいサイトの種類、色、を選択できるようにする。デザインアイディアの詳細をテキストで入力できるようにする。「デザイン生成」ボタン表示する';
 
         $messages = [
             ['role' => 'user', 'content' => $content]
