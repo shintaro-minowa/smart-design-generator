@@ -4,6 +4,7 @@
 <head>
     <title>{{ $page->title }}</title>
     <style>
+        /* 既存のスタイル */
         {!! $page->content->style_css !!}
 
         /* code-containerに適用されるスタイル */
@@ -45,68 +46,59 @@
             border-radius: 4px;
             font-size: 0.8em;
         }
+
+        /* 追加：コードブロックのスタイリング */
+        pre.code-editor {
+            white-space: pre-wrap;
+            word-break: keep-all;
+        }
+
+        /* 追加：行番号のスタイリング */
+        pre code {
+            display: block;
+            padding-left: 10px;
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/standalone.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/parser-html.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/parser-postcss.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.0.3/parser-babel.min.js"></script>
+
+    <!-- highlight.jsのコアライブラリと必要な言語、テーマ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script> <!-- HTML用 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script> <!-- CSS用 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script> <!-- JS用 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs.min.css">
 </head>
 
 <body>
     <div id="code-editor-container">
         <div class="code-editor-wrapper">
             <span class="code-editor-label">HTML</span>
-            <textarea id="html-editor" class="code-editor">
+            <pre><code id="html-editor" class="code-editor language-xml">
                 {!! htmlspecialchars($page->content->body_html) !!}
-            </textarea>
+            </code></pre>
         </div>
         <div class="code-editor-wrapper">
             <span class="code-editor-label">CSS</span>
-            <textarea id="css-editor" class="code-editor">
+            <pre><code id="css-editor" class="code-editor language-css">
                 {!! htmlspecialchars($page->content->style_css) !!}
-            </textarea>
+            </code></pre>
         </div>
         <div class="code-editor-wrapper">
             <span class="code-editor-label">JS</span>
-            <textarea id="js-editor" class="code-editor">
+            <pre><code id="js-editor" class="code-editor language-javascript">
                 {!! htmlspecialchars($page->content->script_js) !!}
-            </textarea>
+            </code></pre>
         </div>
     </div>
 
     {!! $page->content->body_html !!}
 
     <script>
-        {!! $page->content->script_js !!}
-
-        function formatCode() {
-            // HTML、CSS、JSのエディターからコードを取得
-            var htmlCode = document.getElementById('html-editor').value;
-            var cssCode = document.getElementById('css-editor').value;
-            var jsCode = document.getElementById('js-editor').value;
-
-            // Prettierを使用してフォーマット
-            var formattedHtml = prettier.format(htmlCode, {
-                parser: "html",
-                plugins: prettierPlugins
+        // highlight.jsの初期化
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
             });
-            var formattedCss = prettier.format(cssCode, {
-                parser: "css",
-                plugins: prettierPlugins
-            });
-            var formattedJs = prettier.format(jsCode, {
-                parser: "babel",
-                plugins: prettierPlugins
-            });
-
-            // フォーマットしたコードをエディターに戻す
-            document.getElementById('html-editor').value = formattedHtml;
-            document.getElementById('css-editor').value = formattedCss;
-            document.getElementById('js-editor').value = formattedJs;
-        }
-
-        // ページの読み込みが完了したら、フォーマット関数を呼び出す
-        window.onload = formatCode;
+        });
     </script>
 </body>
 
