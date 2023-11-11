@@ -14,7 +14,7 @@ class ChatGPTService
         $this->apiKey = env('OPENAI_API_KEY');
     }
 
-    public function getChatResponse($messages)
+    public function getGptResponse($messages)
     {
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->apiKey,

@@ -20,7 +20,7 @@ class TestController extends Controller
             ['role' => 'user', 'content' => 'おしゃれなwebサイトのソースコードを書いてください。HTMLドキュメントを作成してください。ドキュメントには、スタイリングのための<style>タグ内のCSSコードと、動作のための<script>タグ内のJavaScriptコードを含めてください。']
         ];
 
-        $response = $this->chatGPTService->getChatResponse($messages);
+        $response = $this->chatGPTService->getGptResponse($messages);
 
         \Log::info('gpt response', $response);
 

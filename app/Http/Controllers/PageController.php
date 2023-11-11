@@ -95,7 +95,7 @@ class PageController extends Controller
 
         \Log::info('GPT API request', $messages);
 
-        $response = $this->chatGPTService->getChatResponse($messages);
+        $response = $this->chatGPTService->getGptResponse($messages);
 
         \Log::info('GPT API response', $response);
 
