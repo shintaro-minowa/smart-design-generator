@@ -19,9 +19,10 @@
         }
 
         .code-editor-wrapper {
+            position: relative;
+            /* 追加：ラッパーに対する相対位置指定 */
             width: 32%;
-            /* 変更：各エディタの幅を拡大 */
-            /* マージンやパディングを必要に応じて調整 */
+            /* その他のスタイル */
         }
 
         #code-editor {
@@ -40,8 +41,8 @@
 
         .code-editor-label {
             position: absolute;
-            top: -20px;
-            left: 0px;
+            top: 0;
+            left: 0;
             background-color: grey;
             color: white;
             padding: 3px 5px;
