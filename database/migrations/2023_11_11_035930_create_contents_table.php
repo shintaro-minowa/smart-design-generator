@@ -15,10 +15,10 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('page_id')->constrained()->onDelete('cascade');
-            $table->text('full_html'); // 全体のHTML構造
-            $table->text('body_html'); // <body>タグ内のHTML
-            $table->text('style_css'); // CSSスタイル
-            $table->text('script_js'); // JavaScriptコード
+            $table->text('full_html')->nullable(); // 全体のHTML構造
+            $table->text('body_html')->nullable(); // <body>タグ内のHTML
+            $table->text('style_css')->nullable(); // CSSスタイル
+            $table->text('script_js')->nullable(); // JavaScriptコード
             $table->timestamps();
         });
     }
