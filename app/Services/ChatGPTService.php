@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
+use App\Models\GptLog;
 
 class ChatGPTService
 {
@@ -24,6 +25,12 @@ class ChatGPTService
           'max_tokens' => 4096,
           'messages' => $messages,
         ]);
+
+    // データベースにリクエストとレスポンスを保存
+    GptLog::create([
+      'request' => json_encode($messages, JSON_UNESCAPED_UNICODE),
+      'response' => $response->body(),
+    ]);
 
     return $response->json();
   }
