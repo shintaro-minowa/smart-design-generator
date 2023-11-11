@@ -9,7 +9,7 @@
         #code-editor-container {
             position: relative;
             width: 100%;
-            margin: 10px auto;
+            margin: 40px auto;
             padding-top: 10px;
             display: flex;
             justify-content: space-between;
@@ -71,6 +71,8 @@
 </head>
 
 <body>
+    <a href="/" style="position: absolute; top: 10px; left: 10px; color: blue; text-decoration: none;">戻る</a>
+
     <div id="code-editor-container">
         <div class="code-editor-wrapper">
             <span class="code-editor-label">HTML</span>
