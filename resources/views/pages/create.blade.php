@@ -9,6 +9,7 @@
     <meta property="og:url" content="https://smart-design-generator-cfa7c4008e3e.herokuapp.com/">
     <meta property="og:image" content="https://imgur.com/PGgm9Pa" />
     <title>スマートデザインジェネレーター</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
@@ -67,11 +68,16 @@
 </head>
 
 <body>
+    @if ($errors->has('limit'))
+        <div class="alert alert-danger">
+            {{ $errors->first('limit') }}
+        </div>
+    @endif
     <div class="container">
-        <h1>スマートデザインジェネレーター</h1>
+        <h4>スマートデザインジェネレーター</h4>
         <form id="designForm" action="{{ route('pages.store') }}" method="POST">
             @csrf
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" name="title" value="My Website">
             </div>
@@ -97,8 +103,8 @@
 
     <div class="overlay" id="overlay">
         <div>
-            <i class="fas fa-spinner fa-spin" style="font-size:48px;color:white;"></i>
-            <h2 style="color: white;">デザイン生成中</h2>
+            <i class="fas fa-spinner fa-spin mb-3" style="font-size:48px;color:white;"></i>
+            <h4 style="color: white;">デザイン生成中</h4>
         </div>
     </div>
 
