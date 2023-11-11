@@ -32,7 +32,7 @@ class PageController extends Controller
             ->count();
 
         // 制限を超えている場合はエラーメッセージを表示
-        if ($pagesCount >= 10) {
+        if (!App::environment('local') && $pagesCount >= 10) {
             return back()->withErrors(['limit' => '利用回数制限に到達しました。']);
         }
 
