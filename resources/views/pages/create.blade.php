@@ -74,12 +74,8 @@
             <div class="form-group">
                 <label for="site-type">サイトタイプ</label>
                 <select id="site-type" name="site-type">
-                    <option value="Web Application">Webアプリケーション</option>
-                    <option value="business">ビジネス</option>
-                    <option value="blog">ブログ</option>
-                    <option value="portfolio">ポートフォリオ</option>
-                    <option value="e-commerce">Eコマース</option>
                     <option value="homepage">ホームページ</option>
+                    <option value="Web Application">Webアプリケーション</option>
                     <option value="game">ゲーム</option>
                 </select>
             </div>
