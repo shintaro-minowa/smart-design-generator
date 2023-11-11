@@ -23,7 +23,10 @@ class PageController extends Controller
         // ログに内容を記録
         \Log::info('Generated Content:', $generatedContent);
 
-        $page = Page::create(['title' => $idea, 'user_id' => auth()->id()]);
+        // ユーザーがログインしていればそのIDを、していなければnullを設定
+        $userId = auth()->check() ? auth()->id() : null;
+
+        $page = Page::create(['title' => $idea, 'user_id' => $userId]);
         $content = new Content([
             'html_content' => $generatedContent['html'],
             'css_content' => $generatedContent['css'],
