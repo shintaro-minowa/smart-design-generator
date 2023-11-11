@@ -93,6 +93,8 @@
     {!! $page->content->body_html !!}
 
     <script>
+        {!! $page->content->script_js !!}
+
         // highlight.jsの初期化
         document.addEventListener('DOMContentLoaded', (event) => {
             document.querySelectorAll('pre code').forEach((block) => {
