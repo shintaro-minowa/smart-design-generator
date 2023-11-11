@@ -94,9 +94,11 @@ class PageController extends Controller
             ['role' => 'user', 'content' => $content]
         ];
 
+        \Log::info('GPT API request', $messages);
+
         $response = $this->chatGPTService->getChatResponse($messages);
 
-        \Log::info('gpt response', $response);
+        \Log::info('GPT API response', $response);
 
         // レスポンスからHTML、CSS、JSを抽出
         $extractedContent = $this->extractCodeFromResponse($response['choices'][0]['message']['content']);
