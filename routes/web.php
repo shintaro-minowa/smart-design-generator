@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TestController;
 
 
 /*
@@ -22,3 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [PageController::class, 'create'])->name('pages.create');
 Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
 Route::get('/pages/{page}', [PageController::class, 'show'])->name('pages.show');
+
+Route::get('/test', [TestController::class, 'index']);
