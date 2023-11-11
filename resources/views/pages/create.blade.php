@@ -7,43 +7,37 @@
     <title>Smart Design Generator</title>
     <style>
         body {
-            background-color: #add8e6;
             font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            padding: 20px;
         }
 
         .container {
-            width: 60%;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: auto;
+            background: white;
             padding: 20px;
-            background-color: #f0f8ff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px #ddd;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         input,
         select,
-        textarea {
+        textarea,
+        button {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
         }
 
         button {
-            padding: 10px 20px;
             background-color: #1e90ff;
             color: white;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
         }
 
