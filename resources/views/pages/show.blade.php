@@ -72,19 +72,19 @@
     <div id="code-editor-container">
         <div class="code-editor-wrapper">
             <span class="code-editor-label">HTML</span>
-            <pre><code id="html-editor" class="code-editor language-xml">
+            <pre class="code-editor" contenteditable="true"><code id="html-editor" class="language-xml">
                 {!! htmlspecialchars($page->content->body_html) !!}
             </code></pre>
         </div>
         <div class="code-editor-wrapper">
             <span class="code-editor-label">CSS</span>
-            <pre><code id="css-editor" class="code-editor language-css">
+            <pre class="code-editor" contenteditable="true"><code id="css-editor" class="language-css">
                 {!! htmlspecialchars($page->content->style_css) !!}
             </code></pre>
         </div>
         <div class="code-editor-wrapper">
             <span class="code-editor-label">JS</span>
-            <pre><code id="js-editor" class="code-editor language-javascript">
+            <pre class="code-editor" contenteditable="true"><code id="js-editor" class="language-javascript">
                 {!! htmlspecialchars($page->content->script_js) !!}
             </code></pre>
         </div>
