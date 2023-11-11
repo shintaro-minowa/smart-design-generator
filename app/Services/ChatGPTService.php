@@ -30,6 +30,8 @@ class ChatGPTService
 
   function getMockGptResponse($messages)
   {
+    sleep(3);
+
     // モックのレスポンスデータ
     $mockResponse = [
       "id" => "chatcmpl-8JeZxInB0EPqdEbQIc5wUdL1tFJCM",
