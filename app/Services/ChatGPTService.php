@@ -6,46 +6,46 @@ use Illuminate\Support\Facades\Http;
 
 class ChatGPTService
 {
-    protected $endpoint = 'https://api.openai.com/v1/chat/completions';
-    protected $apiKey; // APIキーを設定
+  protected $endpoint = 'https://api.openai.com/v1/chat/completions';
+  protected $apiKey; // APIキーを設定
 
-    public function __construct()
-    {
-        $this->apiKey = env('OPENAI_API_KEY');
-    }
+  public function __construct()
+  {
+    $this->apiKey = env('OPENAI_API_KEY');
+  }
 
-    public function getGptResponse($messages)
-    {
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $this->apiKey,
-            'Content-Type' => 'application/json',
-        ])->post($this->endpoint, [
-                    'model' => 'gpt-4-vision-preview',
-                    'max_tokens' => 4096,
-                    'messages' => $messages,
-                ]);
+  public function getGptResponse($messages)
+  {
+    $response = Http::withHeaders([
+      'Authorization' => 'Bearer ' . $this->apiKey,
+      'Content-Type' => 'application/json',
+    ])->post($this->endpoint, [
+          'model' => 'gpt-4-vision-preview',
+          'max_tokens' => 4096,
+          'messages' => $messages,
+        ]);
 
-        return $response->json();
-    }
+    return $response->json();
+  }
 
-    function getMockGptResponse($messages)
-    {
-        // モックのレスポンスデータ
-        $mockResponse = [
-            "id" => "chatcmpl-8JeZxInB0EPqdEbQIc5wUdL1tFJCM",
-            "object" => "chat.completion",
-            "created" => 1699694909,
-            "model" => "gpt-4-1106-vision-preview",
-            "usage" => [
-                "prompt_tokens" => 61,
-                "completion_tokens" => 268,
-                "total_tokens" => 329
-            ],
-            "choices" => [
-                [
-                    "message" => [
-                        "role" => "assistant",
-                        "content" => "<!DOCTYPE html>
+  function getMockGptResponse($messages)
+  {
+    // モックのレスポンスデータ
+    $mockResponse = [
+      "id" => "chatcmpl-8JeZxInB0EPqdEbQIc5wUdL1tFJCM",
+      "object" => "chat.completion",
+      "created" => 1699694909,
+      "model" => "gpt-4-1106-vision-preview",
+      "usage" => [
+        "prompt_tokens" => 61,
+        "completion_tokens" => 268,
+        "total_tokens" => 329
+      ],
+      "choices" => [
+        [
+          "message" => [
+            "role" => "assistant",
+            "content" => "<!DOCTYPE html>
     <html>
     <head>
       <title>My Web Application</title>
@@ -89,17 +89,17 @@ class ChatGPTService
       </script>
     </body>
     </html>"
-                    ],
-                    "finish_details" => [
-                        "type" => "stop",
-                        "stop" => ""
-                    ],
-                    "index" => 0
-                ]
-            ]
-        ];
+          ],
+          "finish_details" => [
+            "type" => "stop",
+            "stop" => ""
+          ],
+          "index" => 0
+        ]
+      ]
+    ];
 
-        // レスポンスを返す
-        return $mockResponse;
-    }
+    // レスポンスを返す
+    return $mockResponse;
+  }
 }
