@@ -143,26 +143,6 @@
                 </select>
             </div>
 
-            {{-- <div class="form-group">
-                <label for="header-style">ヘッダースタイル</label>
-                <select id="header-style" name="header-style">
-                    <option value="fixed">固定</option>
-                    <option value="dynamic">動的</option>
-                    <option value="minimal">ミニマル</option>
-                    <option value="image-background">画像背景</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="footer-style">フッタースタイル</label>
-                <select id="footer-style" name="footer-style">
-                    <option value="simple">シンプル</option>
-                    <option value="detailed">詳細</option>
-                    <option value="minimal">ミニマル</option>
-                    <option value="social-links">ソーシャルリンク</option>
-                </select>
-            </div> --}}
-
             <div class="form-group">
                 <label for="design-details">デザイン詳細</label>
                 <textarea id="design-details" name="design-details" rows="5" placeholder="ここに具体的なデザイン要件を入力してください。"></textarea>

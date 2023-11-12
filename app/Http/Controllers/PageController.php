@@ -44,8 +44,6 @@ class PageController extends Controller
             'color-theme',
             'font-style',
             'layout-type',
-            // 'header-style',
-            // 'footer-style',
             'design-details'
         ];
 
