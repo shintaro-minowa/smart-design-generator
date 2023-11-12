@@ -87,7 +87,11 @@
                 <label for="site-type">サイトタイプ</label>
                 <select id="site-type" name="site-type">
                     <option value="homepage">ホームページ</option>
+                    <option value="landing-page">ランディングページ（LP）</option>
                     <option value="webapp">Webアプリケーション</option>
+                    <option value="blog">ブログ</option>
+                    <option value="portfolio">ポートフォリオ</option>
+                    <option value="ecommerce">eコマース</option>
                     <option value="game">ゲーム</option>
                 </select>
             </div>
