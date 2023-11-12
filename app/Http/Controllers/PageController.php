@@ -44,8 +44,8 @@ class PageController extends Controller
             'color-theme',
             'font-style',
             'layout-type',
-            'header-style',
-            'footer-style',
+            // 'header-style',
+            // 'footer-style',
             'design-details'
         ];
 
@@ -110,9 +110,9 @@ class PageController extends Controller
             '### Layout Type ###' . "\n" .
             $idea['layout-type'] . "\n" .
             '### Header Style ###' . "\n" .
-            $idea['header-style'] . "\n" .
+            "Standard" . "\n" .
             '### Footer Style ###' . "\n" .
-            $idea['footer-style'] . "\n" .
+            "Standard" . "\n" .
             '### Details ###' . "\n" .
             $idea['design-details'];
 

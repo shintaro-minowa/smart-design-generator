@@ -143,7 +143,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="header-style">ヘッダースタイル</label>
                 <select id="header-style" name="header-style">
                     <option value="fixed">固定</option>
@@ -161,7 +161,7 @@
                     <option value="minimal">ミニマル</option>
                     <option value="social-links">ソーシャルリンク</option>
                 </select>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="design-details">デザイン詳細</label>
