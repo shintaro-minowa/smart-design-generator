@@ -82,16 +82,18 @@
                 <label for="title">タイトル</label>
                 <input type="text" id="title" name="title" value="My Website">
             </div>
+
             <div class="form-group">
                 <label for="site-type">サイトタイプ</label>
                 <select id="site-type" name="site-type">
                     <option value="homepage">ホームページ</option>
-                    <option value="Web Application">Webアプリケーション</option>
+                    <option value="webapp">Webアプリケーション</option>
                     <option value="game">ゲーム</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="color">ベースカラー</label>
+                <label for="color">基本色</label>
                 <select id="color" name="color">
                     <option value="blue">青</option>
                     <option value="red">赤</option>
@@ -104,6 +106,7 @@
                     <option value="gray">灰</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="color-theme">カラーテーマ</label>
                 <select id="color-theme" name="color-theme">
@@ -115,10 +118,56 @@
                     <option value="earth-tone">アーストーン</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="font-style">フォントスタイル</label>
+                <select id="font-style" name="font-style">
+                    <option value="standard">標準（Arial, Verdanaなど）</option>
+                    <option value="modern">モダン（Futura, Helveticaなど）</option>
+                    <option value="traditional">伝統的（Times New Roman, Garamondなど）</option>
+                    <option value="casual">カジュアル（Comic Sans, Arialなど）</option>
+                    <option value="handwriting">手書き風（Brush Script, Lucida Handwritingなど）</option>
+                    <option value="unique">ユニーク（Papyrus, Impactなど）</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="layout-type">レイアウトタイプ</label>
+                <select id="layout-type" name="layout-type">
+                    <option value="standard">標準（一般的なカラムレイアウト）</option>
+                    <option value="grid">グリッド（カードやセクションを均等に配置）</option>
+                    <option value="one-page">ワンページ（全てのコンテンツが一つのページに）</option>
+                    <option value="parallax">パララックス（スクロールによる動的背景効果）</option>
+                    <option value="magazine">マガジン（大きな画像と見出しで特徴づけられる）</option>
+                    <option value="portfolio">ポートフォリオ（作品やプロジェクトを中心に展開）</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="header-style">ヘッダースタイル</label>
+                <select id="header-style" name="header-style">
+                    <option value="fixed">固定</option>
+                    <option value="dynamic">動的</option>
+                    <option value="minimal">ミニマル</option>
+                    <option value="image-background">画像背景</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="footer-style">フッタースタイル</label>
+                <select id="footer-style" name="footer-style">
+                    <option value="simple">シンプル</option>
+                    <option value="detailed">詳細</option>
+                    <option value="minimal">ミニマル</option>
+                    <option value="social-links">ソーシャルリンク</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="design-details">デザイン詳細</label>
                 <textarea id="design-details" name="design-details" rows="5" placeholder="ここに具体的なデザイン要件を入力してください。"></textarea>
             </div>
+
             <button type="submit">デザイン生成</button>
         </form>
     </div>
