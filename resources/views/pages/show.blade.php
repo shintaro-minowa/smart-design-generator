@@ -62,9 +62,7 @@
             padding-left: 10px;
         }
 
-        #full-html-container {
-
-        }
+        #full-html-container {}
     </style>
 
     <!-- highlight.js -->
