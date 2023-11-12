@@ -1,10 +1,22 @@
-# 環境構築手順
+# 開発環境構築手順
 ```
-docker-compose up -d --build
+git clone [リポジトリのURL]
 
-docker-compose exec app php artisan key:generate
+cd smart-design-generator
 
-docker-compose exec app php artisan migrate
+docker-compose up --build -d
+
+cp .env.example .env
+
+docker exec -it laravel_app /bin/bash
+
+composer install
+
+php artisan key:generate
+
+php artisan migrate
+
+exit
 
 open http://localhost:8080
 ```
