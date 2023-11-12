@@ -7,7 +7,7 @@
     <meta property="og:title" content="スマートデザインジェネレーター">
     <meta property="og:description" content="Webデザインを一瞬で生成">
     <meta property="og:url" content="https://smart-design-generator-cfa7c4008e3e.herokuapp.com/">
-    <meta property="og:image" content="https://imgur.com/PGgm9Pa" />
+    <meta property="og:image" content="https://i.imgur.com/2TWoVMQ.png" />
     <title>スマートデザインジェネレーター</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
