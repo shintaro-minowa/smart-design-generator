@@ -2,7 +2,7 @@
 ```
 git clone [リポジトリのURL]
 
-cd smart-design-generator
+cd [リポジトリ名]
 
 docker-compose up --build -d
 
