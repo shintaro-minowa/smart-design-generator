@@ -55,49 +55,66 @@ class ChatGPTService
           "message" => [
             "role" => "assistant",
             "content" => "<!DOCTYPE html>
-    <html>
-    <head>
-      <title>My Web Application</title>
-      <style>
-        body {
-          background-color: #f4f4f4;
-          color: #333;
-          font-family: Arial, sans-serif;
-        }
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 20px;
-        }
-        h1 {
-          color: #007bff;
-        }
-        button {
-          background-color: #007bff;
-          color: #fff;
-          padding: 10px 15px;
-          border: none;
-          cursor: pointer;
-        }
-        button:hover {
-          background-color: #0056b3;
-        }
-      </style>
-    </head>
-    <body>
-      <div class=\"container\">
-        <h1>My Web Application</h1>
-        <p>Welcome to my web application. Click the button to see it in action.</p>
-        <button onclick=\"showMessage()\">Click me!</button>
-        <p id=\"message\" style=\"display:none;\">You clicked the button!</p>
-      </div>
-      <script>
-        function showMessage() {
-          document.getElementById(\"message\").style.display = \"block\";
-        }
-      </script>
-    </body>
-    </html>"
+            <html>
+            <head>
+                <title>My Website</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: lightblue;
+                        color: blue;
+                    }
+
+                    header {
+                        background-color: blue;
+                        color: white;
+                        padding: 10px;
+                        text-align: center;
+                    }
+
+                    footer {
+                        background-color: blue;
+                        color: white;
+                        padding: 10px;
+                        text-align: center;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+
+                    .container {
+                        max-width: 1200px;
+                        margin: auto;
+                    }
+
+                    .content {
+                        padding: 20px;
+                    }
+
+                </style>
+                <script>
+                    function changeBackground() {
+                        document.body.style.backgroundColor = \"lightgrey\";
+                    }
+                </script>
+            </head>
+            <body onload=\"changeBackground()\">
+                <header>
+                    <h1>Welcome to My Website</h1>
+                </header>
+
+                <div class=\"container\">
+                    <div class=\"content\">
+                        <p>This is my homepage. Welcome and enjoy your stay!</p>
+                        <button onclick=\"changeBackground()\">Change background color</button>
+                    </div>
+                </div>
+
+                <footer>
+                    <p>&copy; 2023 My Website</p>
+                </footer>
+            </body>
+            </html>"
           ],
           "finish_details" => [
             "type" => "stop",

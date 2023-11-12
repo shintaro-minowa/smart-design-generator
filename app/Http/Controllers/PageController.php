@@ -170,10 +170,11 @@ class PageController extends Controller
         // JavaScriptのセクションを除去
         $content = preg_replace('/<script>.*?<\/script>/s', '', $content);
 
-        // CSSセクションを抽出
-        preg_match('/<body>(.*?)<\/body>/s', $content, $matches);
+        // bodyセクションを抽出（属性を含む<body>タグに対応）
+        preg_match('/<body.*?>(.*?)<\/body>/s', $content, $matches);
         return $matches[1];
     }
+
     function extractStyleCss($content)
     {
         // CSSセクションを抽出
