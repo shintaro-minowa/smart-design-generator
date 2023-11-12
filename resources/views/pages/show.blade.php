@@ -15,10 +15,11 @@
         #code-editor-container {
             position: relative;
             width: 100%;
-            margin: 40px auto;
             padding-top: 10px;
+            padding-bottom: 10px;
             display: flex;
             justify-content: space-between;
+            background-color: black;
         }
 
         .code-editor-wrapper {
@@ -34,7 +35,7 @@
             padding: 10px;
             overflow: auto;
             width: 100%;
-            height: 200px;
+            height: 100px;
             border: none;
             resize: none;
         }
@@ -61,7 +62,9 @@
             padding-left: 10px;
         }
 
-        {!! $page->content->style_css !!}
+        #full-html-container {
+
+        }
     </style>
 
     <!-- highlight.js -->
@@ -79,8 +82,6 @@
 </head>
 
 <body>
-    <a href="/" style="position: absolute; top: 10px; left: 10px; color: blue; text-decoration: none;">戻る</a>
-
     <div id="code-editor-container">
         <div class="code-editor-wrapper">
             <span class="code-editor-label">HTML</span>
@@ -102,11 +103,13 @@
         </div>
     </div>
 
-    {!! $page->content->body_html !!}
+    <button onclick="location.href='/'" style="position: absolute; margin: 5px 5px;">戻る</button>
+
+    <div id="full-html-container">
+        {!! $page->content->full_html !!}
+    </div>
 
     <script>
-        {!! $page->content->script_js !!}
-
         // Prettierでフォーマットする関数
         function formatCode() {
             // HTML、CSS、JSのコードエディタを取得
