@@ -91,8 +91,18 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="color">色</label>
-                <input type="text" id="color" name="color" value="青">
+                <label for="color">ベースカラー</label>
+                <select id="color" name="color">
+                    <option value="blue">青</option>
+                    <option value="red">赤</option>
+                    <option value="green">緑</option>
+                    <option value="yellow">黄</option>
+                    <option value="purple">紫</option>
+                    <option value="orange">橙</option>
+                    <option value="black">黒</option>
+                    <option value="white">白</option>
+                    <option value="gray">灰</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="design-details">デザイン詳細</label>
