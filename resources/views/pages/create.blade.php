@@ -95,15 +95,14 @@
             <div class="form-group">
                 <label for="color">基本色</label>
                 <select id="color" name="color">
-                    <option value="blue">青</option>
-                    <option value="red">赤</option>
-                    <option value="green">緑</option>
-                    <option value="yellow">黄</option>
-                    <option value="purple">紫</option>
-                    <option value="orange">橙</option>
-                    <option value="black">黒</option>
-                    <option value="white">白</option>
-                    <option value="gray">灰</option>
+                    <option value="lightblue">ライトブルー</option>
+                    <option value="lavender">ラベンダー</option>
+                    <option value="pink">ピンク</option>
+                    <option value="cream">クリーム</option>
+                    <option value="beige">ベージュ</option>
+                    <option value="mint">ミント</option>
+                    <option value="lightgreen">ライトグリーン</option>
+                    <option value="charcoal">チャコール</option>
                 </select>
             </div>
 
