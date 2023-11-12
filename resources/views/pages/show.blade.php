@@ -8,7 +8,6 @@
     <meta property="og:image" content="https://imgur.com/PGgm9Pa" />
     <title>{{ $page->title }}</title>
     <style>
-        {!! $page->content->style_css !!}
         body {
             margin: 0;
         }
@@ -61,6 +60,8 @@
             display: block;
             padding-left: 10px;
         }
+
+        {!! $page->content->style_css !!}
     </style>
 
     <!-- highlight.js -->
