@@ -132,18 +132,6 @@
             </div>
 
             <div class="form-group">
-                <label for="layout-type">レイアウトタイプ</label>
-                <select id="layout-type" name="layout-type">
-                    <option value="standard">標準（一般的なカラムレイアウト）</option>
-                    <option value="grid">グリッド（カードやセクションを均等に配置）</option>
-                    <option value="one-page">ワンページ（全てのコンテンツが一つのページに）</option>
-                    <option value="parallax">パララックス（スクロールによる動的背景効果）</option>
-                    <option value="magazine">マガジン（大きな画像と見出しで特徴づけられる）</option>
-                    <option value="portfolio">ポートフォリオ（作品やプロジェクトを中心に展開）</option>
-                </select>
-            </div>
-
-            <div class="form-group">
                 <label for="design-details">デザイン詳細</label>
                 <textarea id="design-details" name="design-details" rows="5" placeholder="ここに具体的なデザイン要件を入力してください。"></textarea>
             </div>
