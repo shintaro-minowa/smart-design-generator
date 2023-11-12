@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <button onclick="location.href='/'" style="position: absolute; margin: 5px 5px;">戻る</button>
+    <button onclick="location.href='/'" style="position: absolute; margin: 5px 5px; z-index: 1000;">戻る</button>
 
     <div id="full-html-container">
         {!! $page->content->full_html !!}
