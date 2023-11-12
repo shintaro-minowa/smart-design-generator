@@ -9,6 +9,9 @@
     <title>{{ $page->title }}</title>
     <style>
         {!! $page->content->style_css !!}
+        body {
+            margin: 0;
+        }
 
         #code-editor-container {
             position: relative;
