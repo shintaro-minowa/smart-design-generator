@@ -95,6 +95,7 @@ class PageController extends Controller
         $content = 'Please create an HTML document.' . "\n" .
             '### Requirements ###' . "\n" .
             'Include CSS code within the <style> tag for styling, and JavaScript code within the <script> tag for functionality.' . "\n" .
+            'Please create a code that meets the following conditions.' . "\n" .
             '### Site Title ###' . "\n" .
             $idea['title'] . "\n" .
             '### Type of Site ###' . "\n" .
