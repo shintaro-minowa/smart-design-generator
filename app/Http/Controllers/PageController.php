@@ -36,19 +36,17 @@ class PageController extends Controller
             return back()->withErrors(['limit' => '利用回数制限に到達しました。']);
         }
 
-        $title = $request->input('title', '');
-        $siteType = $request->input('site-type', '');
-        $color = $request->input('color', '');
-        $colorTheme = $request->input('color-theme', '');
-        $designDetails = $request->input('design-details', '');
-
-        $idea = [
-            'title' => $title,
-            'siteType' => $siteType,
-            'color' => $color,
-            'colorTheme' => $colorTheme,
-            'designDetails' => $designDetails
+        // フォームフィールドのリスト
+        $formFields = [
+            'title',
+            'site-type',
+            'color',
+            'color-theme',
+            'design-details'
         ];
+
+        // フォームデータを連想配列で取得
+        $idea = $request->only($formFields);
 
         // GPTのAPIを呼び出し、HTML/CSS/JSを生成
         $generatedContent = $this->generateContentFromIdea($idea);
@@ -62,7 +60,7 @@ class PageController extends Controller
         $userIp = $request->ip();
 
         $page = Page::create([
-            'title' => $title,
+            'title' => $idea['title'],
             'user_id' => $userId,
             'user_ip' => $userIp
         ]);
@@ -86,25 +84,25 @@ class PageController extends Controller
 
     private function generateContentFromIdea($idea)
     {
-        $title = htmlspecialchars($idea['title']);
-        $siteType = htmlspecialchars($idea['siteType']);
-        $color = htmlspecialchars($idea['color']);
-        $colorTheme = htmlspecialchars($idea['colorTheme']);
-        $designDetails = htmlspecialchars($idea['designDetails']);
+        // フィールドごとにhtmlspecialcharsを適用
+        foreach ($idea as $key => $value) {
+            $idea[$key] = htmlspecialchars($value);
+        }
 
+        // メッセージ内容を組み立て
         $content = 'Please create an HTML document.' . "\n" .
             '### Requirements ###' . "\n" .
             'Include CSS code within the <style> tag for styling, and JavaScript code within the <script> tag for functionality.' . "\n" .
             '### Site Title ###' . "\n" .
-            $title . "\n" .
+            $idea['title'] . "\n" .
             '### Type of Site ###' . "\n" .
-            $siteType . "\n" .
+            $idea['site-type'] . "\n" .
             '### Base Color ###' . "\n" .
-            $color . "\n" .
+            $idea['color'] . "\n" .
             '### Color Theme ###' . "\n" .
-            $colorTheme . "\n" .
+            $idea['color-theme'] . "\n" .
             '### Details ###' . "\n" .
-            $designDetails;
+            $idea['design-details'];
 
         $messages = [
             ['role' => 'user', 'content' => $content]
