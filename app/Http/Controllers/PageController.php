@@ -39,12 +39,14 @@ class PageController extends Controller
         $title = $request->input('title', '');
         $siteType = $request->input('site-type', '');
         $color = $request->input('color', '');
+        $colorTheme = $request->input('color-theme', '');
         $designDetails = $request->input('design-details', '');
 
         $idea = [
             'title' => $title,
             'siteType' => $siteType,
             'color' => $color,
+            'colorTheme' => $colorTheme,
             'designDetails' => $designDetails
         ];
 
@@ -87,6 +89,7 @@ class PageController extends Controller
         $title = htmlspecialchars($idea['title']);
         $siteType = htmlspecialchars($idea['siteType']);
         $color = htmlspecialchars($idea['color']);
+        $colorTheme = htmlspecialchars($idea['colorTheme']);
         $designDetails = htmlspecialchars($idea['designDetails']);
 
         $content = 'Please create an HTML document.' . "\n" .
@@ -96,8 +99,10 @@ class PageController extends Controller
             $title . "\n" .
             '### Type of Site ###' . "\n" .
             $siteType . "\n" .
-            '### Color Theme ###' . "\n" .
+            '### Base Color ###' . "\n" .
             $color . "\n" .
+            '### Color Theme ###' . "\n" .
+            $colorTheme . "\n" .
             '### Details ###' . "\n" .
             $designDetails;
 

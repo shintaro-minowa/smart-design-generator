@@ -105,6 +105,17 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="color-theme">カラーテーマ</label>
+                <select id="color-theme" name="color-theme">
+                    <option value="light">明るい</option>
+                    <option value="dark">暗い</option>
+                    <option value="monochrome">モノクローム</option>
+                    <option value="pastel">パステル</option>
+                    <option value="vibrant">ビビッド</option>
+                    <option value="earth-tone">アーストーン</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="design-details">デザイン詳細</label>
                 <textarea id="design-details" name="design-details" rows="5" placeholder="ここに具体的なデザイン要件を入力してください。"></textarea>
             </div>
