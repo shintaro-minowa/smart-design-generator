@@ -27,14 +27,12 @@
         .code-editor-wrapper {
             position: relative;
             width: 32%;
-            margin-right: 25px;
         }
 
         .code-editor {
             background-color: #1e1e1e;
             color: white;
             font-family: Consolas, 'Courier New', monospace;
-            padding: 10px;
             overflow: auto;
             width: 100%;
             height: 100px;
