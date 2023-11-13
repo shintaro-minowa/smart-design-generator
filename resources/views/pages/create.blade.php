@@ -75,7 +75,7 @@
         </div>
     @endif
     <div class="container">
-        <h4>スマートデザインジェネレーター</h4>
+        <h5>スマートデザインジェネレーター</h5>
         <form id="designForm" action="{{ route('pages.store') }}" method="POST">
             @csrf
             <div class="form-group mt-3">
